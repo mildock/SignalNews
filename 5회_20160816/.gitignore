@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/TalkToLog/.vs
+/TalkToLog/TalkToLog.Bot/bin
+/TalkToLog/TalkToLog.Bot/obj
+/TalkToLog/TalkToLog.Data/obj/Debug
+/TalkToLog/TalkToLog.Domain/obj/Debug
+/TalkToLog/TalkToLog.Bot/bin
+/TalkToLog/TalkToLog.Bot/bin
+/TalkToLog/TalkToLog.Bot/bin/Microsoft.WindowsAzure.Configuration.dll

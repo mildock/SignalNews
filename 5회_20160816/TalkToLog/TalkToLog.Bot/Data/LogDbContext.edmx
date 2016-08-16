@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'hcm-hdi-report-db.dbo.AverageResponsetimeInMs' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="AverageResponsetimeInMs">
+          <Property Name="st" Type="date" />
+          <Property Name="hour" Type="int" />
+          <Property Name="Average" Type="float" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'hcm-hdi-report-db.dbo.HitErrorRatioPerIPAndHour' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="HitErrorRatioPerIPAndHour">
+          <Property Name="st" Type="date" />
+          <Property Name="hour" Type="int" />
+          <Property Name="sIP" Type="text" />
+          <Property Name="NormalRequests" Type="bigint" />
+          <Property Name="Errors" Type="bigint" />
+        </EntityType>-->
+        <EntityType Name="HitErrorRatioPerIPAndHour1">
+          <Key>
+            <PropertyRef Name="st" />
+            <PropertyRef Name="hour" />
+            <PropertyRef Name="sIP" />
+          </Key>
+          <Property Name="st" Type="date" Nullable="false" />
+          <Property Name="hour" Type="int" Nullable="false" />
+          <Property Name="sIP" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NormalRequests" Type="bigint" />
+          <Property Name="Errors" Type="bigint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'hcm-hdi-report-db.dbo.pvbygeo' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="pvbygeo">
+          <Property Name="latitude" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="longitude" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="position" Type="varchar" MaxLength="50" />
+          <Property Name="cnt" Type="bigint" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'hcm-hdi-report-db.dbo.pvbygeotemp' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="pvbygeotemp">
+          <Property Name="latitude" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="longitude" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="position" Type="varchar" MaxLength="50" />
+          <Property Name="cnt" Type="bigint" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'hcm-hdi-report-db.dbo.SparkSummary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SparkSummary">
+          <Key>
+            <PropertyRef Name="st" />
+            <PropertyRef Name="TotalRequest" />
+            <PropertyRef Name="TotalUniqueClients" />
+          </Key>
+          <Property Name="st" Type="date" Nullable="false" />
+          <Property Name="TotalRequest" Type="bigint" Nullable="false" />
+          <Property Name="TotalUniqueClients" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'hcm-hdi-report-db.dbo.Top20AverageLongestRequests' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Top20AverageLongestRequests">
+          <Key>
+            <PropertyRef Name="Count" />
+          </Key>
+          <Property Name="st" Type="date" />
+          <Property Name="csURI" Type="text" />
+          <Property Name="Count" Type="bigint" Nullable="false" />
+          <Property Name="scbytes" Type="float" />
+          <Property Name="csbytes" Type="float" />
+          <Property Name="MinTime" Type="int" />
+          <Property Name="MaxTime" Type="int" />
+          <Property Name="AvgTime" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'hcm-hdi-report-db.dbo.Top20AverageLongestRequests1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Top20AverageLongestRequests1">
+          <Key>
+            <PropertyRef Name="Count" />
+          </Key>
+          <Property Name="st" Type="date" />
+          <Property Name="csURI" Type="varchar" MaxLength="200" />
+          <Property Name="Count" Type="bigint" Nullable="false" />
+          <Property Name="scbytes" Type="float" />
+          <Property Name="csbytes" Type="float" />
+          <Property Name="MinTime" Type="int" />
+          <Property Name="MaxTime" Type="int" />
+          <Property Name="AvgTime" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'hcm-hdi-report-db.dbo.Top20HitURLs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Top20HitURLs">
+          <Key>
+            <PropertyRef Name="Hits" />
+          </Key>
+          <Property Name="st" Type="date" />
+          <Property Name="csURI" Type="text" />
+          <Property Name="Hits" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'hcm-hdi-report-db.dbo.Top20HitURLs1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Top20HitURLs1">
+          <Key>
+            <PropertyRef Name="Hits" />
+          </Key>
+          <Property Name="st" Type="date" />
+          <Property Name="csURI" Type="varchar" MaxLength="200" />
+          <Property Name="Hits" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'hcm-hdi-report-db.dbo.UniqClientIPsPerHour' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UniqClientIPsPerHour">
+          <Key>
+            <PropertyRef Name="cnt" />
+          </Key>
+          <Property Name="st" Type="date" />
+          <Property Name="hour" Type="int" />
+          <Property Name="cnt" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="HitErrorRatioPerIPAndHour1" EntityType="Self.HitErrorRatioPerIPAndHour1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SparkSummary" EntityType="Self.SparkSummary" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SparkSummary].[st] AS [st], 
+    [SparkSummary].[TotalRequest] AS [TotalRequest], 
+    [SparkSummary].[TotalUniqueClients] AS [TotalUniqueClients]
+    FROM [dbo].[SparkSummary] AS [SparkSummary]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Top20AverageLongestRequests" EntityType="Self.Top20AverageLongestRequests" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Top20AverageLongestRequests].[st] AS [st], 
+    [Top20AverageLongestRequests].[csURI] AS [csURI], 
+    [Top20AverageLongestRequests].[Count] AS [Count], 
+    [Top20AverageLongestRequests].[scbytes] AS [scbytes], 
+    [Top20AverageLongestRequests].[csbytes] AS [csbytes], 
+    [Top20AverageLongestRequests].[MinTime] AS [MinTime], 
+    [Top20AverageLongestRequests].[MaxTime] AS [MaxTime], 
+    [Top20AverageLongestRequests].[AvgTime] AS [AvgTime]
+    FROM [dbo].[Top20AverageLongestRequests] AS [Top20AverageLongestRequests]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Top20AverageLongestRequests1" EntityType="Self.Top20AverageLongestRequests1" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Top20AverageLongestRequests1].[st] AS [st], 
+    [Top20AverageLongestRequests1].[csURI] AS [csURI], 
+    [Top20AverageLongestRequests1].[Count] AS [Count], 
+    [Top20AverageLongestRequests1].[scbytes] AS [scbytes], 
+    [Top20AverageLongestRequests1].[csbytes] AS [csbytes], 
+    [Top20AverageLongestRequests1].[MinTime] AS [MinTime], 
+    [Top20AverageLongestRequests1].[MaxTime] AS [MaxTime], 
+    [Top20AverageLongestRequests1].[AvgTime] AS [AvgTime]
+    FROM [dbo].[Top20AverageLongestRequests1] AS [Top20AverageLongestRequests1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Top20HitURLs" EntityType="Self.Top20HitURLs" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Top20HitURLs].[st] AS [st], 
+    [Top20HitURLs].[csURI] AS [csURI], 
+    [Top20HitURLs].[Hits] AS [Hits]
+    FROM [dbo].[Top20HitURLs] AS [Top20HitURLs]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Top20HitURLs1" EntityType="Self.Top20HitURLs1" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Top20HitURLs1].[st] AS [st], 
+    [Top20HitURLs1].[csURI] AS [csURI], 
+    [Top20HitURLs1].[Hits] AS [Hits]
+    FROM [dbo].[Top20HitURLs1] AS [Top20HitURLs1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UniqClientIPsPerHour" EntityType="Self.UniqClientIPsPerHour" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UniqClientIPsPerHour].[st] AS [st], 
+    [UniqClientIPsPerHour].[hour] AS [hour], 
+    [UniqClientIPsPerHour].[cnt] AS [cnt]
+    FROM [dbo].[UniqClientIPsPerHour] AS [UniqClientIPsPerHour]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="HitErrorRatioPerIPAndHour1">
+          <Key>
+            <PropertyRef Name="st" />
+            <PropertyRef Name="hour" />
+            <PropertyRef Name="sIP" />
+          </Key>
+          <Property Name="st" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="hour" Type="Int32" Nullable="false" />
+          <Property Name="sIP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NormalRequests" Type="Int64" />
+          <Property Name="Errors" Type="Int64" />
+        </EntityType>
+        <EntityType Name="SparkSummary">
+          <Key>
+            <PropertyRef Name="st" />
+            <PropertyRef Name="TotalRequest" />
+            <PropertyRef Name="TotalUniqueClients" />
+          </Key>
+          <Property Name="st" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TotalRequest" Type="Int64" Nullable="false" />
+          <Property Name="TotalUniqueClients" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Top20AverageLongestRequests">
+          <Key>
+            <PropertyRef Name="Count" />
+          </Key>
+          <Property Name="st" Type="DateTime" Precision="0" />
+          <Property Name="csURI" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Count" Type="Int64" Nullable="false" />
+          <Property Name="scbytes" Type="Double" />
+          <Property Name="csbytes" Type="Double" />
+          <Property Name="MinTime" Type="Int32" />
+          <Property Name="MaxTime" Type="Int32" />
+          <Property Name="AvgTime" Type="Double" />
+        </EntityType>
+        <EntityType Name="Top20AverageLongestRequests1">
+          <Key>
+            <PropertyRef Name="Count" />
+          </Key>
+          <Property Name="st" Type="DateTime" Precision="0" />
+          <Property Name="csURI" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Count" Type="Int64" Nullable="false" />
+          <Property Name="scbytes" Type="Double" />
+          <Property Name="csbytes" Type="Double" />
+          <Property Name="MinTime" Type="Int32" />
+          <Property Name="MaxTime" Type="Int32" />
+          <Property Name="AvgTime" Type="Double" />
+        </EntityType>
+        <EntityType Name="Top20HitURLs">
+          <Key>
+            <PropertyRef Name="Hits" />
+          </Key>
+          <Property Name="st" Type="DateTime" Precision="0" />
+          <Property Name="csURI" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Hits" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Top20HitURLs1">
+          <Key>
+            <PropertyRef Name="Hits" />
+          </Key>
+          <Property Name="st" Type="DateTime" Precision="0" />
+          <Property Name="csURI" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Hits" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UniqClientIPsPerHour">
+          <Key>
+            <PropertyRef Name="cnt" />
+          </Key>
+          <Property Name="st" Type="DateTime" Precision="0" />
+          <Property Name="hour" Type="Int32" />
+          <Property Name="cnt" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="LogDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HitErrorRatioPerIPAndHour1" EntityType="Self.HitErrorRatioPerIPAndHour1" />
+          <EntitySet Name="SparkSummaries" EntityType="Self.SparkSummary" />
+          <EntitySet Name="Top20AverageLongestRequests" EntityType="Self.Top20AverageLongestRequests" />
+          <EntitySet Name="Top20AverageLongestRequests1" EntityType="Self.Top20AverageLongestRequests1" />
+          <EntitySet Name="Top20HitURLs" EntityType="Self.Top20HitURLs" />
+          <EntitySet Name="Top20HitURLs1" EntityType="Self.Top20HitURLs1" />
+          <EntitySet Name="UniqClientIPsPerHours" EntityType="Self.UniqClientIPsPerHour" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="LogDbContext">
+          <EntitySetMapping Name="HitErrorRatioPerIPAndHour1">
+            <EntityTypeMapping TypeName="Model.HitErrorRatioPerIPAndHour1">
+              <MappingFragment StoreEntitySet="HitErrorRatioPerIPAndHour1">
+                <ScalarProperty Name="st" ColumnName="st" />
+                <ScalarProperty Name="hour" ColumnName="hour" />
+                <ScalarProperty Name="sIP" ColumnName="sIP" />
+                <ScalarProperty Name="NormalRequests" ColumnName="NormalRequests" />
+                <ScalarProperty Name="Errors" ColumnName="Errors" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SparkSummaries">
+            <EntityTypeMapping TypeName="Model.SparkSummary">
+              <MappingFragment StoreEntitySet="SparkSummary">
+                <ScalarProperty Name="st" ColumnName="st" />
+                <ScalarProperty Name="TotalRequest" ColumnName="TotalRequest" />
+                <ScalarProperty Name="TotalUniqueClients" ColumnName="TotalUniqueClients" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Top20AverageLongestRequests">
+            <EntityTypeMapping TypeName="Model.Top20AverageLongestRequests">
+              <MappingFragment StoreEntitySet="Top20AverageLongestRequests">
+                <ScalarProperty Name="st" ColumnName="st" />
+                <ScalarProperty Name="csURI" ColumnName="csURI" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="scbytes" ColumnName="scbytes" />
+                <ScalarProperty Name="csbytes" ColumnName="csbytes" />
+                <ScalarProperty Name="MinTime" ColumnName="MinTime" />
+                <ScalarProperty Name="MaxTime" ColumnName="MaxTime" />
+                <ScalarProperty Name="AvgTime" ColumnName="AvgTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Top20AverageLongestRequests1">
+            <EntityTypeMapping TypeName="Model.Top20AverageLongestRequests1">
+              <MappingFragment StoreEntitySet="Top20AverageLongestRequests1">
+                <ScalarProperty Name="st" ColumnName="st" />
+                <ScalarProperty Name="csURI" ColumnName="csURI" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="scbytes" ColumnName="scbytes" />
+                <ScalarProperty Name="csbytes" ColumnName="csbytes" />
+                <ScalarProperty Name="MinTime" ColumnName="MinTime" />
+                <ScalarProperty Name="MaxTime" ColumnName="MaxTime" />
+                <ScalarProperty Name="AvgTime" ColumnName="AvgTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Top20HitURLs">
+            <EntityTypeMapping TypeName="Model.Top20HitURLs">
+              <MappingFragment StoreEntitySet="Top20HitURLs">
+                <ScalarProperty Name="st" ColumnName="st" />
+                <ScalarProperty Name="csURI" ColumnName="csURI" />
+                <ScalarProperty Name="Hits" ColumnName="Hits" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Top20HitURLs1">
+            <EntityTypeMapping TypeName="Model.Top20HitURLs1">
+              <MappingFragment StoreEntitySet="Top20HitURLs1">
+                <ScalarProperty Name="st" ColumnName="st" />
+                <ScalarProperty Name="csURI" ColumnName="csURI" />
+                <ScalarProperty Name="Hits" ColumnName="Hits" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UniqClientIPsPerHours">
+            <EntityTypeMapping TypeName="Model.UniqClientIPsPerHour">
+              <MappingFragment StoreEntitySet="UniqClientIPsPerHour">
+                <ScalarProperty Name="st" ColumnName="st" />
+                <ScalarProperty Name="hour" ColumnName="hour" />
+                <ScalarProperty Name="cnt" ColumnName="cnt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

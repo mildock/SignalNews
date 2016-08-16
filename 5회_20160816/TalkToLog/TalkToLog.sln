@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "TalkToLog.Infrastructure", "TalkToLog.Infrastructure\TalkToLog.Infrastructure.deployproj", "{1AE7F333-817F-4056-972E-4DA216638F9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TalkToLog.Bot", "TalkToLog.Bot\TalkToLog.Bot.csproj", "{A8BA1066-5695-4D71-ABB4-65E5A5E0C3D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1AE7F333-817F-4056-972E-4DA216638F9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AE7F333-817F-4056-972E-4DA216638F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AE7F333-817F-4056-972E-4DA216638F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AE7F333-817F-4056-972E-4DA216638F9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8BA1066-5695-4D71-ABB4-65E5A5E0C3D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8BA1066-5695-4D71-ABB4-65E5A5E0C3D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8BA1066-5695-4D71-ABB4-65E5A5E0C3D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8BA1066-5695-4D71-ABB4-65E5A5E0C3D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
